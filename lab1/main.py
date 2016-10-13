@@ -21,7 +21,7 @@ def get_y_axis(arr):
     output = []
     for item in arr:
         float_arr = [float(i) for i in item]
-        output.append(sum(float_arr[1:])/len(float_arr) - 1)
+        output.append(sum(float_arr[1:])/(len(float_arr) - 1))
     return output
 
 
