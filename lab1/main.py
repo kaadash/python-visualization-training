@@ -26,12 +26,17 @@ def get_y_axis(arr):
 
 
 def main():
-    file_names = ['2cel.csv', '2cel-rs.csv', 'cel.csv', 'rsel.csv']
+    plt.figure(figsize=(6.7, 6.7))
+    file_names = [['2cel.csv', 'purple'], ['2cel-rs.csv', 'red'], ['cel.csv', 'black'], ['rsel.csv', 'blue'], ['cel-rs.csv', 'green']]
     for file in file_names:
-        arr = loadfile(file)
-        plt.plot(get_x_axis(arr), get_y_axis(arr), label=file)
-    plt.legend()
+        arr = loadfile(file[0])
+        plt.plot(get_x_axis(arr), get_y_axis(arr), label=file[0], color=file[1])
+    plt.legend(loc='lower right')
+    plt.xlim([0, 500000])
+    plt.xlabel('Rozegranych gier')
+    plt.ylabel('odsetek wygranych gier')
     plt.savefig('myplot.pdf')
+    plt.show()
     plt.close()
 
 if __name__ == '__main__':
